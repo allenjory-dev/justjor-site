@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} — Jor Allen`} description={post.data.description}>
+  <article class="container-narrow py-24">
+    <a href="/blog" class="text-accent text-sm mb-12 inline-block">
+      ← Back to blog
+    </a>
+
+    <header class="mb-12">
+      <p class="font-mono text-xs text-fg-subtle mb-4">
+        {new Date(post.data.pubDate).toLocaleDateString("en-CA", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
+      <h1 class="mb-6">{post.data.title}</h1>
+      <p class="text-fg-muted text-xl leading-relaxed">{post.data.description}</p>
+    </header>
+
+    <div class="prose-custom">
+      <Content />
+    </div>
+
+    {post.data.tags && (
+      <footer class="mt-16 pt-6 border-t border-border">
+        <ul class="flex gap-2 flex-wrap">
+          {post.data.tags.map((tag) => (
+            <li class="text-xs font-mono uppercase tracking-wider text-fg-subtle border border-border rounded px-2 py-1">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </footer>
+    )}
+  </article>
+</Layout>

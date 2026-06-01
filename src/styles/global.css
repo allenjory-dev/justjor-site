@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight text-fg;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-medium leading-tight; }
+  h2 { @apply text-3xl md:text-4xl font-medium leading-tight; }
+  h3 { @apply text-2xl md:text-3xl font-medium leading-snug; }
+
+  a {
+    @apply text-accent hover:text-accent-hover transition-colors;
+  }
+
+  code {
+    @apply font-mono text-sm bg-bg-muted px-1.5 py-0.5 rounded text-accent;
+  }
+
+  /* Blog post prose styling */
+  .prose-custom {
+    @apply text-fg-muted leading-relaxed;
+  }
+
+  .prose-custom p { @apply my-4; }
+  .prose-custom h2 { @apply mt-12 mb-4; }
+  .prose-custom h3 { @apply mt-8 mb-3; }
+  .prose-custom ul { @apply list-disc list-outside pl-6 my-4 space-y-2; }
+  .prose-custom ol { @apply list-decimal list-outside pl-6 my-4 space-y-2; }
+  .prose-custom blockquote { @apply border-l-4 border-accent pl-6 italic my-6 text-fg-muted; }
+  .prose-custom pre { @apply bg-bg-elevated p-4 rounded-lg overflow-x-auto my-6 border border-border; }
+  .prose-custom pre code { @apply bg-transparent p-0 text-fg; }
+}
+
+@layer components {
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-bg font-medium rounded-lg hover:bg-accent-hover transition-colors;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-bg-elevated text-fg font-medium rounded-lg border border-border hover:border-accent transition-colors;
+  }
+
+  .card {
+    @apply bg-bg-elevated border border-border rounded-xl p-6 transition-all hover:border-accent/40 hover:bg-bg-muted;
+  }
+}

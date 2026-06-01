@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+---
+
+<Layout title="Blog — Jor Allen">
+  <section class="container-narrow py-24">
+    <p class="font-mono text-accent text-sm tracking-wider uppercase mb-4">
+      Blog
+    </p>
+    <h1 class="mb-6">What I'm learning, building, and figuring out.</h1>
+    <p class="text-fg-muted text-lg mb-16 leading-relaxed">
+      Mostly about Life OS, personal AI, the benefits-finding bot, and the occasional travel update.
+      Honest, slightly gritty, no LinkedIn-influencer voice.
+    </p>
+
+    {posts.length === 0 ? (
+      <p class="text-fg-muted italic">No posts yet. First one coming soon.</p>
+    ) : (
+      <ul class="space-y-12">
+        {posts.map((post) => (
+          <li>
+            <article>
+              <a href={`/blog/${post.slug}`} class="block group">
+                <p class="font-mono text-xs text-fg-subtle mb-2">
+                  {new Date(post.data.pubDate).toLocaleDateString("en-CA", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+                <h2 class="text-3xl mb-3 group-hover:text-accent transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="text-fg-muted leading-relaxed">{post.data.description}</p>
+                {post.data.tags && (
+                  <ul class="flex gap-2 mt-4 flex-wrap">
+                    {post.data.tags.map((tag) => (
+                      <li class="text-xs font-mono uppercase tracking-wider text-fg-subtle border border-border rounded px-2 py-1">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Layout>

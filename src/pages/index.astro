@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+const projects = [
+  {
+    title: "Life OS Agent",
+    blurb: "Personal AI assistant. ~89 tools across 19 Python modules. Talks to me via Telegram, WhatsApp, and Meta sunglasses. Runs 24/7 on my Windows laptop.",
+    href: "/projects/life-os",
+    tag: "Active",
+  },
+  {
+    title: "Benefits Maximizer",
+    blurb: "Used my own bot to audit my workplace benefits plan. Found $4,300/year of unclaimed value. Now a productizable service for other employees.",
+    href: "/blog/benefits-maximizer",
+    tag: "Case study",
+  },
+  {
+    title: "JustJor YouTube",
+    blurb: "Travel and adventure content from Thailand, Vietnam, the Rockies, and wherever else the calendar opens. Authentic, slightly gritty, work in progress.",
+    href: "https://www.youtube.com/@realjustjor",
+    tag: "External",
+  },
+  {
+    title: "Golf Caddy Module",
+    blurb: "Spec'd-but-not-built: a Life OS module that uses a laser rangefinder + Garmin to coach me through 18 holes without paying $100/yr for 18Birdies.",
+    href: "#",
+    tag: "Planned",
+  },
+];
+---
+
+<Layout title="Jor Allen — building Life OS in my basement">
+  <!-- HERO -->
+  <section class="container-wide py-24 md:py-32">
+    <div class="max-w-3xl">
+      <p class="font-mono text-accent text-sm mb-6 tracking-wider uppercase">
+        Hey, I'm Jor.
+      </p>
+      <h1 class="mb-8">
+        Building a personal AI assistant from scratch, finding $4,300/year of benefits my employer didn't tell me about, and chasing waterfights in Thailand.
+      </h1>
+      <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
+        Day job: Plumbing &amp; Gas Safety Codes Officer at the City of Calgary.
+        Side quest: Life OS — a Python bot that runs my health logs, finance dashboard, meal tracking, and morning briefings.
+        Documenting everything here.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://www.youtube.com/@realjustjor" class="btn-primary">
+          → JustJor on YouTube
+        </a>
+        <a href="mailto:jor@justjor.me" class="btn-secondary">
+          jor@justjor.me
+        </a>
+        <a href="https://github.com/allenjory-dev" class="btn-secondary">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="border-t border-border py-24">
+    <div class="container-wide grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-1">
+        <p class="font-mono text-accent text-sm tracking-wider uppercase">
+          About
+        </p>
+      </div>
+      <div class="md:col-span-2 prose-custom max-w-prose">
+        <p class="text-fg text-xl mb-6">
+          I'm Jor. By day I work for the City of Calgary. By night I'm building things I wish existed.
+        </p>
+        <p>
+          The main project is <strong class="text-fg">Life OS</strong> — a personal AI assistant
+          I wrote in Python that runs on my Windows laptop 24/7. It tracks every meal,
+          medication, workout, and dollar I spend. It scans my bank alert emails, watches my
+          Garmin data overnight, and sends me a briefing every morning at 6:30.
+          It writes to my Obsidian vault, manages my Google Calendar, and talks to me through
+          Telegram, WhatsApp, and a pair of Meta Vanguard sunglasses I take on walks.
+        </p>
+        <p>
+          The most useful thing it's done so far: ran a full audit of my workplace benefits plan,
+          found roughly $4,300/year I was leaving on the table, and walked me through claiming the
+          $900 Personal Wellness Account in one session.
+        </p>
+        <p>
+          When I'm not building or doing safety inspections, I run a small YouTube channel called
+          JustJor — travel content from Thailand, Vietnam, the Rockies, and wherever else the
+          year takes me. The aesthetic is authentic and slightly gritty. The audience is small
+          (24 subscribers as of writing). The intent is to grow it deliberately.
+        </p>
+        <p class="text-fg-muted italic">
+          This site is where I document the building — what works, what doesn't, what I'm learning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED — Benefits Maximizer Story -->
+  <section class="border-t border-border py-24 bg-bg-elevated">
+    <div class="container-wide grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-1">
+        <p class="font-mono text-accent text-sm tracking-wider uppercase">
+          Featured
+        </p>
+      </div>
+      <div class="md:col-span-2">
+        <h2 class="mb-6">
+          I built a bot that found $4,300/year of unused workplace benefits.
+        </h2>
+        <p class="text-fg-muted text-lg leading-relaxed mb-6">
+          Most employees use 30-40% of the benefits their employer pays for. The rest expires
+          December 31 every year. Not because people are lazy — because the booklets are 50+ pages
+          of insurance jargon and HR can't legally tell you what to claim.
+        </p>
+        <p class="text-fg-muted text-lg leading-relaxed mb-6">
+          I asked my Life OS bot to read my plan booklet, cross-reference my year-to-date claims,
+          and tell me what I was missing. Thirty minutes later it surfaced $8,500 of unclaimed
+          annual value and walked me through filing $900 of it the same afternoon.
+        </p>
+        <p class="text-fg-muted text-lg leading-relaxed mb-8">
+          The repeatable pattern — read the booklet → audit the buckets → surface the gaps → file
+          the claims — is now a service I'm productizing for other employees who don't have a
+          personal AI bot lying around.
+        </p>
+        <a href="/blog/benefits-maximizer" class="btn-primary">
+          Read the case study →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GALLERY -->
+  <section id="projects" class="border-t border-border py-24">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div class="md:col-span-1">
+          <p class="font-mono text-accent text-sm tracking-wider uppercase">
+            Projects
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <h2 class="mb-4">What I'm building.</h2>
+          <p class="text-fg-muted text-lg">
+            Some shipped, some still cooking. Updated as things move.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {projects.map((project) => (
+          <a href={project.href} class="card group">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-xl group-hover:text-accent transition-colors">
+                {project.title}
+              </h3>
+              <span class="text-xs font-mono uppercase tracking-wider text-fg-subtle border border-border rounded px-2 py-1">
+                {project.tag}
+              </span>
+            </div>
+            <p class="text-fg-muted leading-relaxed">{project.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  {recentPosts.length > 0 && (
+    <section class="border-t border-border py-24 bg-bg-elevated">
+      <div class="container-wide grid md:grid-cols-3 gap-12">
+        <div class="md:col-span-1">
+          <p class="font-mono text-accent text-sm tracking-wider uppercase">
+            Writing
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <h2 class="mb-8">Recent posts.</h2>
+          <ul class="space-y-6">
+            {recentPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}`} class="block group">
+                  <p class="font-mono text-xs text-fg-subtle mb-1">
+                    {new Date(post.data.pubDate).toLocaleDateString("en-CA", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <h3 class="text-2xl mb-2 group-hover:text-accent transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-fg-muted">{post.data.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-10">
+            <a href="/blog" class="text-accent hover:text-accent-hover">
+              All posts →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

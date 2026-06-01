@@ -1,0 +1,30 @@
+---
+const year = new Date().getFullYear();
+const socialLinks = [
+  { href: "https://www.youtube.com/@realjustjor", label: "YouTube" },
+  { href: "https://github.com/allenjory-dev", label: "GitHub" },
+  { href: "mailto:jor@justjor.me", label: "Email" },
+];
+---
+
+<footer class="border-t border-border mt-24">
+  <div class="container-wide py-12 flex flex-col md:flex-row gap-6 justify-between items-center">
+    <div class="text-fg-muted text-sm">
+      <p>
+        &copy; {year} Jor Allen — built with
+        <a href="https://astro.build" class="underline">Astro</a>
+        and shipped on
+        <a href="https://pages.cloudflare.com" class="underline">Cloudflare Pages</a>.
+      </p>
+    </div>
+    <ul class="flex gap-4 text-sm">
+      {socialLinks.map((link) => (
+        <li>
+          <a href={link.href} class="text-fg-muted hover:text-accent transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</footer>
