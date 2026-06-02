@@ -48,4 +48,4 @@ Friday's round is just the first batch of data. Every round makes it smarter.
 
 ---
 
-*Longer build journals on the [JustJor YouTube channel](https://www.youtube.com/@realjustjor), more writing [on the blog](/blog).*
+*More writing [on the blog](/blog). Travel videos on the [JustJor YouTube channel](https://www.youtube.com/@realjustjor).*

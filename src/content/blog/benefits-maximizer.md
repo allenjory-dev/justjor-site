@@ -56,4 +56,4 @@ If you work in Canada with a typical extended health plan and want to know what 
 
 ---
 
-*If you want to follow along as I build more of this, the rest of the writing lives [on the blog](/blog), and I post longer build journals on the [JustJor YouTube channel](https://www.youtube.com/@realjustjor).*
+*If you want to follow along as I build more of this, the rest of the writing lives [on the blog](/blog). Travel videos on the [JustJor YouTube channel](https://www.youtube.com/@realjustjor).*
