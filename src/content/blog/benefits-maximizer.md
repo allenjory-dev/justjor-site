@@ -18,7 +18,7 @@ A few weeks ago I asked it a simple question: *"Audit my workplace benefits. Tel
 
 Thirty minutes of conversation later it had:
 
-1. Parsed my 50-page MEBAC employee benefits booklet (City of Calgary, Green Shield)
+1. Parsed my 50-page employee benefits booklet
 2. Read my full claims history from the GreenShield+ portal screenshots I uploaded
 3. Built a complete YTD usage tracker for every bucket
 4. Identified ~$8,500 of unused annual benefits — most of which I had no idea I had
