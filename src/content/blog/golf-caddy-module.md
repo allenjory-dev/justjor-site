@@ -1,6 +1,6 @@
 ---
 title: "How I built a voice-controlled golf caddy in a day"
-description: "I talk to my sunglasses, my AI bot logs every shot. No phone, no tapping. Plus the time the bot lied to me for ten minutes."
+description: "I talk to my sunglasses, my AI bot logs every shot, and now it learns my club distances. No phone, no tapping. Plus the time the bot lied to me for ten minutes."
 pubDate: 2026-06-02
 tags: ["life-os", "golf", "ai-agents", "case-study"]
 ---
@@ -26,6 +26,14 @@ Adding golf meant teaching the bot a few new tricks. Now during a round I can sa
 
 At the end of the round, the bot writes a full scorecard to my notes — including which club I used on every shot.
 
+Since the first build, I added a few things that made it feel less like a toy and more like a real golf buddy:
+
+- **Smarter score handling.** The bot now treats the tool output as the source of truth, so it doesn't freestyle the par/bogey label in chat.
+- **Safer putt tracking.** If I say a messy phrase like "two putt, finish the hole," the system is harder to trick into dropping those strokes.
+- **Cancel and undo.** Test rounds can be thrown away, and bad voice entries can be removed without saving junk to the scorecard.
+- **Tee-aware course setup.** Instead of assuming every hole is the same shape, the round can load the right tee/par context.
+- **Club-distance learning.** I can log how far a club actually went, then ask for a club suggestion later based on my own median distances.
+
 ## The time the bot lied to me
 
 First test, the bot replied perfectly to everything. Strokes logged, putts counted, holes completed. I was about to call it done.
@@ -44,7 +52,7 @@ Eventually, after a round, I'll be able to ask my bot *"why was my driver short 
 
 Most golf apps know what a typical golfer does. Mine can learn from my own patterns without publishing the private inputs.
 
-The first round is just the first batch of data. Every round makes it smarter.
+The first round is just the first batch of data. Every range session and every round makes it smarter.
 
 ---
 
