@@ -10,7 +10,7 @@ const recentPosts = allPosts
 const startHere = [
   {
     title: "Life OS Agent",
-    blurb: "My personal AI assistant that runs on my laptop and manages health logs, money, calendar, notes, and daily briefings.",
+    blurb: "My personal AI assistant that helps organize private logs, schedule, notes, and daily briefings.",
     href: "#life-os",
   },
   {
@@ -20,7 +20,7 @@ const startHere = [
   },
   {
     title: "Golf Caddy Module",
-    blurb: "A voice-controlled golf tracker using Meta glasses, WhatsApp, and Life OS so I can log a round without touching my phone.",
+    blurb: "A voice-controlled golf tracker that lets me log a round hands-free without touching my phone.",
     href: "/blog/golf-caddy-module",
   },
   {
@@ -33,7 +33,7 @@ const startHere = [
 const projects = [
   {
     title: "Life OS Agent",
-    blurb: "Personal AI assistant. 100+ tools across 20 Python modules. Talks to me via Telegram, WhatsApp, and Meta sunglasses. Runs 24/7 on my Windows laptop.",
+    blurb: "Personal AI assistant. 100+ tools across 20 Python modules. Connects private logs, notes, scheduling, and daily decision support.",
     href: "#life-os",
     tag: "Active",
   },
@@ -51,7 +51,7 @@ const projects = [
   },
   {
     title: "Golf Caddy Module",
-    blurb: "Voice-controlled score tracking from my Meta sunglasses, through WhatsApp, into Life OS, out to my Obsidian vault. Logs every shot, putt, and club hands-free while I play. Built in a day.",
+    blurb: "Voice-controlled score tracking that logs shots, putts, and clubs hands-free while I play. Built in a day.",
     href: "/blog/golf-caddy-module",
     tag: "Shipped",
   },
@@ -61,7 +61,7 @@ const proofBlocks = [
   {
     label: "Morning briefing",
     title: "Daily context before the day starts",
-    sample: ["6:30 AM brief", "Sleep: 7h 14m | HRV: down 8%", "Calendar: inspection at 10:00", "Nudge: submit wellness receipt"],
+    sample: ["Morning brief", "Recovery: lighter day suggested", "Schedule: one field appointment", "Nudge: submit eligible receipt"],
   },
   {
     label: "Meal tracking",
@@ -71,7 +71,7 @@ const proofBlocks = [
   {
     label: "Benefits audit",
     title: "Unused buckets turned into actions",
-    sample: ["Vision: $400 remaining", "Mental health: $1,500 unused", "PWA: receipt eligible", "Next action: file $900 claim"],
+    sample: ["Vision: unused balance", "Wellness: eligible receipt found", "Paramedical: category gap", "Next action: file claim"],
   },
   {
     label: "Golf caddy",
@@ -98,7 +98,7 @@ const pillars = [
 
 <Layout
   title="Jor Allen - practical AI systems for real life"
-  description="Jor Allen builds practical AI systems for real life, starting with Life OS: a personal AI assistant for health, money, calendar, workouts, travel, and daily decisions."
+  description="Jor Allen builds practical AI systems for real life, starting with Life OS: a personal AI assistant for private logs, scheduling, notes, and daily decisions."
 >
   <!-- HERO -->
   <section class="container-wide py-24 md:py-32">
@@ -110,8 +110,8 @@ const pillars = [
         I build practical AI systems for real life.
       </h1>
       <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
-        I'm documenting Life OS, my personal AI assistant that tracks my health, money,
-        calendar, workouts, travel, and daily decisions. It already found $4,300/year
+        I'm documenting Life OS, my personal AI assistant for private logs, scheduling,
+        notes, travel, and daily decisions. It already found $4,300/year
         in unused workplace benefits and replaced parts of my golf app with a
         voice-controlled caddy.
       </p>
@@ -187,11 +187,10 @@ const pillars = [
         <h2 id="life-os">What I'm building</h2>
         <p>
           The main project is <strong class="text-fg">Life OS</strong> — a personal AI assistant
-          I wrote in Python that runs on my Windows laptop 24/7. It tracks every meal,
-          medication, workout, and dollar I spend. It scans my bank alert emails, watches my
-          Garmin data overnight, and sends me a briefing every morning at 6:30.
-          It writes to my Obsidian vault, manages my Google Calendar, and talks to me through
-          Telegram, WhatsApp, and a pair of Meta Vanguard sunglasses I take on walks.
+          I wrote in Python that connects private logs, notes, scheduling, finance context,
+          health context, and daily decision support. The public version is the story of the
+          system; the private version keeps the actual services, credentials, and raw data off
+          the internet.
         </p>
         <p>
           The most useful thing it's done so far: ran a full audit of my workplace benefits plan,
@@ -270,7 +269,7 @@ const pillars = [
           of insurance jargon and HR can't legally tell you what to claim.
         </p>
         <p class="text-fg-muted text-lg leading-relaxed mb-6">
-          I asked my Life OS bot to read my plan booklet, cross-reference my year-to-date claims,
+          I asked my Life OS bot to read my plan booklet, cross-reference my claim records,
           and tell me what I was missing. Thirty minutes later it surfaced $8,500 of unclaimed
           annual value and walked me through filing $900 of it the same afternoon.
         </p>
@@ -298,8 +297,8 @@ const pillars = [
         <div class="md:col-span-2">
           <h2 class="mb-4">What Life OS looks like in practice.</h2>
           <p class="text-fg-muted text-lg leading-relaxed">
-            These are public-safe sample outputs, not private screenshots. The point is the shape:
-            real inputs, useful context, specific next actions.
+            These are public-safe sample outputs, not private screenshots or real account data.
+            The point is the shape: real inputs, useful context, specific next actions.
           </p>
         </div>
       </div>
