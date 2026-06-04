@@ -7,11 +7,34 @@ const recentPosts = allPosts
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
   .slice(0, 3);
 
+const startHere = [
+  {
+    title: "Life OS Agent",
+    blurb: "My personal AI assistant that runs on my laptop and manages health logs, money, calendar, notes, and daily briefings.",
+    href: "#life-os",
+  },
+  {
+    title: "Benefits Maximizer",
+    blurb: "The case study where Life OS found $4,300/year in unused workplace benefits and helped me claim $900 in one session.",
+    href: "/blog/benefits-maximizer",
+  },
+  {
+    title: "Golf Caddy Module",
+    blurb: "A voice-controlled golf tracker using Meta glasses, WhatsApp, and Life OS so I can log a round without touching my phone.",
+    href: "/blog/golf-caddy-module",
+  },
+  {
+    title: "JustJor Travel",
+    blurb: "The human side: Thailand, Vietnam, the Rockies, and whatever else I film while testing these systems in the real world.",
+    href: "https://www.youtube.com/@realjustjor",
+  },
+];
+
 const projects = [
   {
     title: "Life OS Agent",
-    blurb: "Personal AI assistant. 108 tools across 20 Python modules. Talks to me via Telegram, WhatsApp, and Meta sunglasses. Runs 24/7 on my Windows laptop.",
-    href: "/projects/life-os",
+    blurb: "Personal AI assistant. 100+ tools across 20 Python modules. Talks to me via Telegram, WhatsApp, and Meta sunglasses. Runs 24/7 on my Windows laptop.",
+    href: "#life-os",
     tag: "Active",
   },
   {
@@ -33,9 +56,50 @@ const projects = [
     tag: "Shipped",
   },
 ];
+
+const proofBlocks = [
+  {
+    label: "Morning briefing",
+    title: "Daily context before the day starts",
+    sample: ["6:30 AM brief", "Sleep: 7h 14m | HRV: down 8%", "Calendar: inspection at 10:00", "Nudge: submit wellness receipt"],
+  },
+  {
+    label: "Meal tracking",
+    title: "Food photo to usable log",
+    sample: ["Photo received", "Estimated: 42g protein | 610 kcal", "Logged to daily nutrition note", "Follow-up: low fiber so far"],
+  },
+  {
+    label: "Benefits audit",
+    title: "Unused buckets turned into actions",
+    sample: ["Vision: $400 remaining", "Mental health: $1,500 unused", "PWA: receipt eligible", "Next action: file $900 claim"],
+  },
+  {
+    label: "Golf caddy",
+    title: "Voice command to scorecard",
+    sample: ["shot driver", "club: driver | stroke: 1", "complete hole, 4 with 2 putts", "Hole 1: bogey logged"],
+  },
+];
+
+const nowItems = [
+  "Building Life OS into a full personal operating system",
+  "Turning Benefits Maximizer into a simple, repeatable audit service",
+  "Testing the voice-controlled golf caddy on real rounds",
+  "Growing JustJor on YouTube without sanding off the weird edges",
+  "Documenting practical AI workflows for regular people and small operators",
+];
+
+const pillars = [
+  { title: "Build", blurb: "Life OS, AI agents, tools, and experiments." },
+  { title: "Optimize", blurb: "Health, money, time, benefits, and systems." },
+  { title: "Explore", blurb: "Travel, golf, snowboarding, YouTube, and real-world testing." },
+  { title: "Document", blurb: "What worked, what broke, and what I learned." },
+];
 ---
 
-<Layout title="Jor Allen — building Life OS in my basement">
+<Layout
+  title="Jor Allen - practical AI systems for real life"
+  description="Jor Allen builds practical AI systems for real life, starting with Life OS: a personal AI assistant for health, money, calendar, workouts, travel, and daily decisions."
+>
   <!-- HERO -->
   <section class="container-wide py-24 md:py-32">
     <div class="max-w-3xl">
@@ -43,23 +107,62 @@ const projects = [
         Hey, I'm Jor.
       </p>
       <h1 class="mb-8">
-        Building a personal AI assistant from scratch, finding $4,300/year of workplace benefits I didn't know I had, and chasing waterfights in Thailand.
+        I build practical AI systems for real life.
       </h1>
       <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
-        Day job in construction code compliance.
-        Side quest: Life OS — a Python bot that runs my health logs, finance dashboard, meal tracking, and morning briefings.
-        Documenting everything here.
+        I'm documenting Life OS, my personal AI assistant that tracks my health, money,
+        calendar, workouts, travel, and daily decisions. It already found $4,300/year
+        in unused workplace benefits and replaced parts of my golf app with a
+        voice-controlled caddy.
+      </p>
+      <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
+        Day job: construction code compliance. Side quest: building the operating
+        system for my life and showing the messy parts as I go.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="https://www.youtube.com/@realjustjor" class="btn-primary">
-          → JustJor on YouTube
+        <a href="/blog/benefits-maximizer" class="btn-primary">
+          Start here: read the case study
         </a>
-        <a href="mailto:jor@justjor.me" class="btn-secondary">
-          jor@justjor.me
+        <a href="https://www.youtube.com/@realjustjor" class="btn-secondary">
+          Watch JustJor on YouTube
         </a>
         <a href="https://github.com/allenjory-dev" class="btn-secondary">
           GitHub
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- START HERE -->
+  <section class="border-t border-border py-24 bg-bg-elevated">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div class="md:col-span-1">
+          <p class="font-mono text-accent text-sm tracking-wider uppercase">
+            Start here
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <h2 class="mb-4">The quick map.</h2>
+          <p class="text-fg-muted text-lg leading-relaxed">
+            The brand is practical AI for real life: build the system, use it on
+            messy human problems, then document what actually happened.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {startHere.map((item, index) => (
+          <a href={item.href} class="card group">
+            <p class="font-mono text-xs text-fg-subtle mb-3">
+              {String(index + 1).padStart(2, "0")}
+            </p>
+            <h3 class="text-xl mb-3 group-hover:text-accent transition-colors">
+              {item.title}
+            </h3>
+            <p class="text-fg-muted leading-relaxed">{item.blurb}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -81,6 +184,7 @@ const projects = [
         <p class="text-fg text-xl mb-6">
           I'm Jor. By day I work in construction code compliance. By night I'm building things I wish existed.
         </p>
+        <h2 id="life-os">What I'm building</h2>
         <p>
           The main project is <strong class="text-fg">Life OS</strong> — a personal AI assistant
           I wrote in Python that runs on my Windows laptop 24/7. It tracks every meal,
@@ -94,6 +198,13 @@ const projects = [
           found roughly $4,300/year I was leaving on the table, and walked me through claiming the
           $900 Personal Wellness Account in one session.
         </p>
+        <h2>Why I'm documenting it</h2>
+        <p>
+          Most AI content is either hype or tutorials. I'm more interested in what happens when
+          you wire AI into an actual life: meals, money, calendar chaos, benefits booklets, golf
+          rounds, travel, missed receipts, and the weird failures along the way.
+        </p>
+        <h2>What else I do</h2>
         <p>
           When I'm not building or doing safety inspections, I run a small YouTube channel called
           JustJor — travel content from Thailand, Vietnam, the Rockies, and wherever else the
@@ -103,6 +214,15 @@ const projects = [
         <p class="text-fg-muted italic">
           This site is where I document the building — what works, what doesn't, what I'm learning.
         </p>
+
+        <div class="not-prose mt-10 grid sm:grid-cols-2 gap-4">
+          {pillars.map((pillar) => (
+            <div class="card">
+              <h3 class="text-lg mb-2">{pillar.title}</h3>
+              <p class="text-fg-muted text-sm leading-relaxed">{pillar.blurb}</p>
+            </div>
+          ))}
+        </div>
 
         <div class="mt-12 grid grid-cols-2 gap-4">
           <figure>
@@ -155,13 +275,49 @@ const projects = [
           annual value and walked me through filing $900 of it the same afternoon.
         </p>
         <p class="text-fg-muted text-lg leading-relaxed mb-8">
-          The repeatable pattern — read the booklet → audit the buckets → surface the gaps → file
-          the claims — is now a service I'm productizing for other employees who don't have a
+          The repeatable pattern - read the booklet, audit the buckets, surface the gaps, file
+          the claims - is now a service I'm productizing for other employees who don't have a
           personal AI bot lying around.
         </p>
         <a href="/blog/benefits-maximizer" class="btn-primary">
-          Read the case study →
+          Read the case study
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BLOCKS -->
+  <section class="border-t border-border py-24">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div class="md:col-span-1">
+          <p class="font-mono text-accent text-sm tracking-wider uppercase">
+            Proof
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <h2 class="mb-4">What Life OS looks like in practice.</h2>
+          <p class="text-fg-muted text-lg leading-relaxed">
+            These are public-safe sample outputs, not private screenshots. The point is the shape:
+            real inputs, useful context, specific next actions.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {proofBlocks.map((block) => (
+          <div class="card">
+            <p class="font-mono text-xs text-accent uppercase tracking-wider mb-3">
+              {block.label}
+            </p>
+            <h3 class="text-xl mb-4">{block.title}</h3>
+            <div class="rounded-lg border border-border bg-bg p-4 font-mono text-sm text-fg-muted space-y-2">
+              {block.sample.map((line) => (
+                <p>{line}</p>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -197,6 +353,32 @@ const projects = [
             <p class="text-fg-muted leading-relaxed">{project.blurb}</p>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NOW -->
+  <section class="border-t border-border py-24">
+    <div class="container-wide grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-1">
+        <p class="font-mono text-accent text-sm tracking-wider uppercase">
+          Now
+        </p>
+      </div>
+      <div class="md:col-span-2">
+        <h2 class="mb-6">What I'm working on now.</h2>
+        <ul class="space-y-4">
+          {nowItems.map((item) => (
+            <li class="text-fg-muted text-lg leading-relaxed border-b border-border pb-4">
+              {item}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-10">
+          <a href="mailto:jor@justjor.me?subject=Following%20the%20Life%20OS%20build" class="btn-secondary">
+            Follow the build
+          </a>
+        </div>
       </div>
     </div>
   </section>
