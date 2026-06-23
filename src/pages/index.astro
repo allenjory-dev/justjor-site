@@ -10,7 +10,7 @@ const recentPosts = allPosts
 const startHere = [
   {
     title: "Life OS Agent",
-    blurb: "My personal AI assistant that helps organize private logs, schedule, notes, and daily briefings.",
+    blurb: "My personal AI assistant that connects private logs, notes, briefings, newsletters, and practical next actions.",
     href: "#life-os",
   },
   {
@@ -33,9 +33,21 @@ const startHere = [
 const projects = [
   {
     title: "Life OS Agent",
-    blurb: "Personal AI assistant. 100+ tools across 20 Python modules. Connects private logs, notes, scheduling, and daily decision support.",
+    blurb: "Personal AI assistant. 100+ tools across 20+ Python modules. Connects private logs, notes, scheduling, newsletters, and daily decision support.",
     href: "/life-os-showcase.html",
     tag: "Active",
+  },
+  {
+    title: "Revenue Scout",
+    blurb: "Draft-only agent that reads project-relevant signal and turns it into business opportunities, next actions, and outreach drafts I review manually.",
+    href: "#proof",
+    tag: "New",
+  },
+  {
+    title: "Newsletter Intelligence",
+    blurb: "Daily intake layer that scans newsletters and surfaces only the items tied to active projects, interests, and useful work.",
+    href: "#proof",
+    tag: "Shipped",
   },
   {
     title: "Benefits Maximizer",
@@ -74,6 +86,16 @@ const proofBlocks = [
     sample: ["Vision: unused balance", "Wellness: eligible receipt found", "Paramedical: category gap", "Next action: file claim"],
   },
   {
+    label: "Newsletter intelligence",
+    title: "Daily signal without the inbox slog",
+    sample: ["32 newsletters scanned", "5 project-relevant items", "Promo noise filtered out", "Useful links saved for review"],
+  },
+  {
+    label: "Revenue scout",
+    title: "Signal turned into business moves",
+    sample: ["Matched against active projects", "5 opportunities surfaced", "Outreach drafted", "Nothing sent automatically"],
+  },
+  {
     label: "Golf caddy",
     title: "Voice command to scorecard",
     sample: ["shot 7 iron 150", "stroke logged | club distance learned", "what club for 150?", "suggestion based on personal median"],
@@ -83,7 +105,7 @@ const proofBlocks = [
 const nowItems = [
   "Building Life OS into a full personal operating system",
   "Turning Benefits Maximizer into a simple, repeatable audit service",
-  "Testing the voice-controlled golf caddy on real rounds",
+  "Building agents that filter signal, find opportunities, and draft next actions",
   "Growing JustJor on YouTube without sanding off the weird edges",
   "Documenting practical AI workflows for regular people and small operators",
 ];
@@ -98,7 +120,7 @@ const pillars = [
 
 <Layout
   title="Jor Allen - practical AI systems for real life"
-  description="Jor Allen builds practical AI systems for real life, starting with Life OS: a personal AI assistant for private logs, scheduling, notes, and daily decisions."
+  description="Jor Allen builds practical AI systems for real life, starting with Life OS: a personal AI assistant for private logs, scheduling, notes, newsletters, and daily decisions."
 >
   <!-- HERO -->
   <section class="container-wide py-24 md:py-32">
@@ -111,9 +133,9 @@ const pillars = [
       </h1>
       <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
         I'm documenting Life OS, my personal AI assistant for private logs, scheduling,
-        notes, travel, and daily decisions. It already found $4,300/year
-        in unused workplace benefits and replaced parts of my golf app with a
-        voice-controlled caddy.
+        notes, travel, newsletters, and daily decisions. It already found $4,300/year
+        in unused workplace benefits, replaced parts of my golf app with a
+        voice-controlled caddy, and now turns useful signal into draft business opportunities.
       </p>
       <p class="text-fg-muted text-lg mb-10 max-w-2xl leading-relaxed">
         Day job: construction code compliance. Side quest: building the operating
@@ -122,6 +144,9 @@ const pillars = [
       <div class="flex flex-wrap gap-3">
         <a href="/blog/benefits-maximizer" class="btn-primary">
           Start here: read the case study
+        </a>
+        <a href="/life-os-showcase.html" class="btn-secondary">
+          See the Life OS showcase
         </a>
         <a href="https://www.youtube.com/@realjustjor" class="btn-secondary">
           Watch JustJor on YouTube
@@ -188,14 +213,19 @@ const pillars = [
         <p>
           The main project is <strong class="text-fg">Life OS</strong> — a personal AI assistant
           I wrote in Python that connects private logs, notes, scheduling, finance context,
-          health context, and daily decision support. The public version is the story of the
-          system; the private version keeps the actual services, credentials, and raw data off
-          the internet.
+          health context, newsletter intake, and daily decision support. The public version is
+          the story of the system; the private version keeps the actual services, credentials,
+          and raw data off the internet.
         </p>
         <p>
           The most useful thing it's done so far: ran a full audit of my workplace benefits plan,
           found roughly $4,300/year I was leaving on the table, and walked me through claiming the
           $900 Personal Wellness Account in one session.
+        </p>
+        <p>
+          The newer modules are moving from tracking to action: Newsletter Intelligence filters
+          what I subscribe to against active projects, and Revenue Scout turns that signal into
+          draft-only business opportunities and outreach ideas I still approve by hand.
         </p>
         <h2>Why I'm documenting it</h2>
         <p>
@@ -270,8 +300,9 @@ const pillars = [
         </p>
         <p class="text-fg-muted text-lg leading-relaxed mb-6">
           I asked my Life OS bot to read my plan booklet, cross-reference my claim records,
-          and tell me what I was missing. Thirty minutes later it surfaced $8,500 of unclaimed
-          annual value and walked me through filing $900 of it the same afternoon.
+          and tell me what I was missing. Thirty minutes later it surfaced thousands in unused
+          categories, including roughly $4,300/year I could realistically act on, and walked me
+          through filing $900 of it the same afternoon.
         </p>
         <p class="text-fg-muted text-lg leading-relaxed mb-8">
           The repeatable pattern - read the booklet, audit the buckets, surface the gaps, file
@@ -286,7 +317,7 @@ const pillars = [
   </section>
 
   <!-- PROOF BLOCKS -->
-  <section class="border-t border-border py-24">
+  <section id="proof" class="border-t border-border py-24">
     <div class="container-wide">
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div class="md:col-span-1">
@@ -375,7 +406,7 @@ const pillars = [
         </ul>
         <div class="mt-10">
           <a href="mailto:jor@justjor.me?subject=Following%20the%20Life%20OS%20build" class="btn-secondary">
-            Follow the build
+            Talk AI systems
           </a>
         </div>
       </div>
